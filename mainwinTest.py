@@ -6,13 +6,13 @@
 __author__ = 'ccxadmin'
 
 import sys
-import ContainerUI
+import BuddySetUI
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     mainwindow = QMainWindow()
-    ui = ContainerUI.Ui_MainWindow()
+    ui = BuddySetUI.Ui_MainWindow()
     ui.setupUi(mainwindow)
     mainwindow.show()
     sys.exit(app.exec_())
