@@ -9,12 +9,15 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtGui import QIntValidator
 
 class Ui_MainWindow(object):
+
     def setupUi(self, MainWindow):
+        self.txtbuffer=''
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(981, 740)
+        MainWindow.setToolTip("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
@@ -60,6 +63,12 @@ class Ui_MainWindow(object):
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_2)
         self.lineEdit_3 = QtWidgets.QLineEdit(self.formLayoutWidget)
         self.lineEdit_3.setObjectName("lineEdit_3")
+          #校验器
+        intValidator=QIntValidator()
+        intValidator.setRange(1,100)
+        self.lineEdit_3.setValidator(intValidator)
+        self.lineEdit_3.textChanged.connect(self.changeTxt)
+
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.lineEdit_3)
         self.label_3 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_3.setObjectName("label_3")
@@ -78,6 +87,45 @@ class Ui_MainWindow(object):
         self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit.setGeometry(QtCore.QRect(40, 270, 131, 121))
         self.textEdit.setObjectName("textEdit")
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setGeometry(QtCore.QRect(40, 490, 121, 51))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 85, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 85, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 85, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 85, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        self.label_4.setPalette(palette)
+        self.label_4.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.label_4.setAutoFillBackground(True)
+        self.label_4.setFrameShape(QtWidgets.QFrame.Box)
+        self.label_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.label_4.setObjectName("label_4")
+        self.label_5 = QtWidgets.QLabel(self.centralwidget)
+        self.label_5.setGeometry(QtCore.QRect(80, 580, 131, 41))
+        self.label_5.setObjectName("label_5")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -116,12 +164,18 @@ class Ui_MainWindow(object):
         self.label_3.setBuddy(self.lineEdit_3)
 
         self.retranslateUi(MainWindow)
-        self.pushButton.clicked.connect(MainWindow.close)
+       # self.pushButton.clicked.connect(MainWindow.close)
         self.checkBox.toggled['bool'].connect(self.textEdit.setEnabled)
+        # self.label_5.linkActivated['QString'].connect(MainWindow.showMaximized)
+        # self.label_5.linkHovered['QString'].connect(self.textEdit.append)
+        self.lineEdit.returnPressed.connect(MainWindow.close)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.treeView, self.comboBox)
         MainWindow.setTabOrder(self.comboBox, self.lineEdit_3)
         MainWindow.setTabOrder(self.lineEdit_3, self.lineEdit)
+
+    def changeTxt(self,txt):
+       print(txt)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -129,8 +183,12 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "姓名(&A)："))
         self.label_2.setText(_translate("MainWindow", "性别(&B)："))
         self.label_3.setText(_translate("MainWindow", "年龄(&C)："))
+
+        self.pushButton.setToolTip(_translate("MainWindow", "<html><head/><body><p>this is a button,you can click it</p></body></html>"))
         self.pushButton.setText(_translate("MainWindow", "关闭窗口"))
         self.checkBox.setText(_translate("MainWindow", "CheckBox"))
+        self.label_4.setText(_translate("MainWindow", "TextLabel"))
+        self.label_5.setText(_translate("MainWindow", "<a href=\'hello\'>欢迎使用 GUI</a>"))
         self.toolBar.setWindowTitle(_translate("MainWindow", "toolBar"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.actionOpen.setText(_translate("MainWindow", "Open"))
