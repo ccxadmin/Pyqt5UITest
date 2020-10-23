@@ -2,7 +2,15 @@
 # -*- coding: utf-8 -*-
 
 ' a test module '
+'''
+多控件显示
+关联信号与槽
+校验器
+输入限制
+正则表达式
+等等demo
 
+'''
 __author__ = 'ccxadmin'
 
 import sys
