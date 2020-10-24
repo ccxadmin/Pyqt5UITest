@@ -18,12 +18,18 @@ class MenuDemo(QMainWindow):
         action2.setShortcut('CTRL+s')
         action2.triggered.connect(self.saveclick)
         addmenu.addAction(action2)
+        addmenu.triggered.connect(self.press)
+
 
         addmenu2=bar.addMenu('编辑')
         addmenu2.addAction('复制')
         addmenu2.addSeparator()
         acction3=QAction('粘贴',self)
         addmenu2.addAction(acction3)
+
+    def press(self,action):
+        print(self.sender())
+        print(action.text())
 
 
     def saveclick(self,a):

@@ -23,7 +23,11 @@ class ToolBarDemo(QMainWindow):
         bar2=self.addToolBar('硬件')
         bar2.addAction(QIcon('resizeApi.png'),'CCD')
 
-        bar3 = QToolBar('file', self)
+        bar.actionTriggered.connect(self.press)
+
+    def press(self,action):
+        print(self.sender())
+        print(action.text())
 
 
 
