@@ -14,7 +14,7 @@ class tabelviewDemo(QWidget):
 
     def InitUI(self):
         self.tabel=QTableView()
-        self.model=QStandardItemModel(4,3,self)
+        self.model=QStandardItemModel(4,3)
         self.model.setHorizontalHeaderLabels(['ID','姓名','年龄'])
         self.tabel.setModel(self.model)
         layout=QVBoxLayout()
