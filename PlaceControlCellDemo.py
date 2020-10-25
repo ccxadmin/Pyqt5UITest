@@ -2,7 +2,10 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import sys,math
-
+'''
+setitem:将文本放入单元格
+setcellwidget:将控件放入单元格
+'''
 
 class PlaceControlCell(QMainWindow):
     def __init__(self):
