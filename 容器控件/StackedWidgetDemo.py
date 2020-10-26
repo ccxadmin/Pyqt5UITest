@@ -3,8 +3,8 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import sys,math
 '''
-Qtabwidget
-tableControl
+stackwidgetControl
+堆栈窗口控件
 '''
 
 class stackedWidgetDemo(QWidget):

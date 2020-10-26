@@ -4,7 +4,7 @@ from PyQt5.QtCore import *
 import sys,math
 '''
 Qtabwidget
-tableControl
+tableControl选项卡控件
 '''
 
 class tabdgetDemo(QWidget):
