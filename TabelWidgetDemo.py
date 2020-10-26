@@ -36,10 +36,12 @@ class TableWidgetDemo(QWidget):
         self.tabelwdiget.setItem(2, 1, QTableWidgetItem('20'))
         self.tabelwdiget.setItem(2, 2, QTableWidgetItem('广州'))
 
+
         #合并单元格
         # self.tabelwdiget.setSpan(0,0,2,1)
         #显示图片
-
+        imageitem=QTableWidgetItem(QIcon('package.png'),'背包')
+        self.tabelwdiget.setItem(2,3,imageitem)
 
         self.tabelwdiget.setEditTriggers(QAbstractItemView.NoEditTriggers)#常量
         self.tabelwdiget.setSelectionBehavior(QAbstractItemView.SelectRows)
