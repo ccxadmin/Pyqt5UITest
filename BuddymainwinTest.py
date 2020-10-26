@@ -39,6 +39,7 @@ if __name__ == "__main__":
     mainwindow = QMainWindow()
     ui = BuddySetUI.Ui_MainWindow()
     ui.setupUi(mainwindow)
+    ui.comboBox.addItem('VB')
     ui.comboBox.addItems(['C++','C#','JAVA','PYTHON'])
     ui.comboBox.currentIndexChanged.connect(lambda:CobxSelectChnage(ui.comboBox))
     ui.pushButton.clicked.connect(lambda:TestCloseEvent(ui.pushButton))
