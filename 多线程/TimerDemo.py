@@ -43,7 +43,7 @@ class TimerDemo(QWidget):
         self.timer.setInterval(1000)
         self.timer.start()
         self.startBtn.setEnabled(False)
-        self.startBtn.setEnabled(True)
+        self.stopbtn.setEnabled(True)
         pass
     def stopTimer(self):
         self.timer.stop()
